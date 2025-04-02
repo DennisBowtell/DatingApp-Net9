@@ -4,7 +4,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.  These have been moved to Extensions
 builder.Services.AddApplicationServices(builder.Configuration);
-builder.Services.AddIdentityServices (builder.Configuration);
+builder.Services.AddIdentityServices(builder.Configuration);
 
 var app = builder.Build();
 
