@@ -7,11 +7,12 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { platformBrowser } from '@angular/platform-browser';
 import { provideToastr } from 'ngx-toastr';
 import { errorInterceptor } from './_interceptors/error.interceptor';
+import { jwtInterceptor } from './_interceptors/jwt.interceptor';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideHttpClient(withInterceptors([errorInterceptor])),
+    provideHttpClient(withInterceptors([errorInterceptor, jwtInterceptor])),
     //does not import automatically
     provideAnimations(),
     //npm install ngx-toastr  -  https://npmjs.com/package/ngx-toastr
