@@ -48,9 +48,9 @@ public class UserRepository(DataContext context, IMapper mapper) : IUserReposito
         throw new NotImplementedException();
     }
 
-    public Task<AppUser?> GetUserByUsernameAsync(string username)
+    public async Task<AppUser?> GetUserByUsernameAsync(string username)
     {
-        throw new NotImplementedException();
+        return await context.Users.Include(x => x.Photos).SingleOrDefaultAsync(x => x.UserName == username);
     }
 
     public async Task<IEnumerable<AppUser>> GetUsersAsync()
